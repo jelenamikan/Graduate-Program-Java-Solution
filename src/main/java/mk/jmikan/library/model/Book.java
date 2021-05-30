@@ -14,11 +14,14 @@ import javax.persistence.*;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @Table(name = "books")
-public class Book {
+public abstract class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long isbn;
+    private Long id;
+
+    @Column(unique = true)
+    private String isbn;
 
     private String title;
 
