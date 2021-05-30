@@ -5,20 +5,24 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface BookRepository<T extends Book> extends JpaRepository<T, Long>{
 
     // find all in chronological order by year published - zadacha 2a
-    List<Book> findAllOrderByYearPublished();
+    List<T> findAllOrderByYearPublished();
 
     // find all by author who's last name starts with string s - zadacha 2b
-    List<Book> findAllByAuthor_LastNameStartsWith(String s);
+    List<T> findAllByAuthor_LastNameStartsWith(String s);
 
     // find oldest book - zadacha 2d
-    Book findTopByOrderByYearPublished(Integer i);
+    T findTopByOrderByYearPublished();
 
     // find newest book - zadacha 2d
-    Book findTopByOrderByYearPublishedDesc(Integer i);
+    T findTopByOrderByYearPublishedDesc();
+
+    // find books by decades - zadacha 2v
+    Optional<Book> findFirstByYearPublishedGreaterThanAndYearPublishedLessThan(Integer i1, Integer i2);
 
 }
