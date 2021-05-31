@@ -50,14 +50,14 @@ public class BookController {
 
     // update a print book - zadacha 3b
     @PutMapping("/printbook/{id}")
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.OK)
     public Book updatePrintBook(@PathVariable Long id, @RequestBody PrintCopyBook book){
         return bookService.updatePrintBook(id, book);
     }
 
     // update an ebook - zadacha 3b
     @PutMapping("/ebook/{id}")
-    @ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.OK)
     public Book updateEBook(@PathVariable Long id, @RequestBody EBook book){
         return bookService.updateEBook(id, book);
     }
