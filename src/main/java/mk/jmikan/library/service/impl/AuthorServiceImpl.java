@@ -33,7 +33,7 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public Author getOne(Long id) {
+    public Author getById(Long id) {
         return authorRepository.findById(id).orElseThrow(() -> new RuntimeException("Author Not Found!!!"));
     }
 

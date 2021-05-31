@@ -29,7 +29,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Book getOne(Long id) {
+    public Book getById(Long id) {
         return bookRepository.findById(id).orElseThrow(() -> new RuntimeException("Book Not Found!!!"));
     }
 
@@ -50,7 +50,7 @@ public class BookServiceImpl implements BookService {
     @Override
     public Set<Book> getAllChronological() {
         Set<Book> books = new HashSet<>();
-        bookRepository.findAllOrderByYearPublished().iterator().forEachRemaining(books::add);
+        bookRepository.findByOrderByYearPublished().iterator().forEachRemaining(books::add);
         return books;
     }
 

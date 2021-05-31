@@ -11,7 +11,7 @@ import java.util.Optional;
 public interface BookRepository<T extends Book> extends JpaRepository<T, Long>{
 
     // find all in chronological order by year published - zadacha 2a
-    List<T> findAllOrderByYearPublished();
+    List<T> findByOrderByYearPublished();
 
     // find all by author who's last name starts with string s - zadacha 2b
     List<T> findAllByAuthor_LastNameStartsWith(String s);
