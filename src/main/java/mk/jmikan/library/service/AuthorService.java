@@ -8,7 +8,7 @@ public interface AuthorService {
 
     Set<Author> getAll();
 
-    Author getOne(Long id);
+    Author getById(Long id);
 
     Author save(Author author);
 

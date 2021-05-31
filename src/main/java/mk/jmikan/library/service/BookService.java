@@ -8,7 +8,7 @@ public interface BookService {
 
     Set<Book> getAll();
 
-    Book getOne(Long id);
+    Book getById(Long id);
 
     Book save(Book book);
 
