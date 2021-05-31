@@ -25,6 +25,7 @@ public class AuthorServiceImpl implements AuthorService {
         this.bookRepository = bookRepository;
     }
 
+    // get all authors and their books - zadacha 3d
     @Override
     public Set<Author> getAll() {
         Set<Author> authors = new HashSet<>();
@@ -32,11 +33,13 @@ public class AuthorServiceImpl implements AuthorService {
         return authors;
     }
 
+    // get author by id
     @Override
     public Author getById(Long id) {
         return authorRepository.findById(id).orElseThrow(() -> new RuntimeException("Author Not Found!!!"));
     }
 
+    // create new author
     @Transactional
     @Override
     public Author save(Author author) {
@@ -45,6 +48,7 @@ public class AuthorServiceImpl implements AuthorService {
         return savedAuthor;
     }
 
+    // delete author by id
     @Override
     public void delete(Long id) {
         authorRepository.deleteById(id);
@@ -54,7 +58,7 @@ public class AuthorServiceImpl implements AuthorService {
     @Override
     public Set<Author> getAllWithMoreThan3Books() {
         Set<Author> authors = new HashSet<>();
-        authorRepository.findAllByBooksGreaterThan(3).iterator().forEachRemaining(authors::add);
+        authorRepository.findAllByBooksLength().iterator().forEachRemaining(authors::add);
         return authors;
     }
 

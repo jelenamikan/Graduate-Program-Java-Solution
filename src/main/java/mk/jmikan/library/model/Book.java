@@ -1,6 +1,6 @@
 package mk.jmikan.library.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.*;
 import lombok.*;
 
 import javax.persistence.*;
@@ -26,6 +26,7 @@ public class Book {
 
     private Integer yearPublished;
 
+    @JsonIgnoreProperties({"birthYear", "books"})
     @ManyToOne
     @JoinColumn(name = "author_id")
     private Author author;

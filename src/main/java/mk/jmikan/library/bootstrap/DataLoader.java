@@ -48,12 +48,18 @@ public class DataLoader implements CommandLineRunner {
         PrintCopyBook b6 = createPrintBook("8649504191", "Проклета авлија",
                 a4Saved, 1954, 212, 100);
 
+        EBook b7 = createEBook("4563782902", "Коцкар", a1Saved, 1867, EBookFormat.HTML5, 4);
+
+        PrintCopyBook b8 = createPrintBook("0575569048", "Идиот", a1Saved, 1868, 667, 330);
+
         bookService.save(b1);
         bookService.save(b2);
         bookService.save(b3);
         bookService.save(b4);
         bookService.save(b5);
         bookService.save(b6);
+        bookService.save(b7);
+        bookService.save(b8);
 
     }
 
